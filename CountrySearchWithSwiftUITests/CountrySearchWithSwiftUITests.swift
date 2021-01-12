@@ -21,7 +21,7 @@ class CountrySearchWithSwiftUITests: XCTestCase {
     func testExample() throws {
         // UI tests must launch the application that they test.
 
-        let mockNwManager = SimpleMockNetworkManager()
+        let mockNwManager = NetworkDataManager()
         
         let expectation = XCTestExpectation(description: "Simple rest API call")
         let request = APIRouter.byCode("IN")
