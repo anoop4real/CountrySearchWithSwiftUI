@@ -7,11 +7,11 @@
 
 import Foundation
 
-class CountrySearchViewModel: BaseViewModel, ObservableObject {
+class CountrySearchViewModel: BaseViewModel {
     
     fileprivate var isFilterApplied = false
-    @Published fileprivate var filteredArray = [Country]()
-    @Published fileprivate var normalArray = [Country]()
+    fileprivate var filteredArray = [Country]()
+    fileprivate var normalArray = [Country]()
     
     override init() {
         super.init()
@@ -32,43 +32,11 @@ class CountrySearchViewModel: BaseViewModel, ObservableObject {
     }
     
     // Apply the user filter
-    func filterBy(keyWord: String) {
+    func filterBy(keyWord: String) -> [Country] {
         if keyWord.isEmpty {
-            setFilterWith(status: false)
-            return
+            return normalArray
         }
         filteredArray = normalArray.filter({ $0.countryName.lowercased().contains(keyWord.lowercased()) })
-        setFilterWith(status: true)
-    }
-
-    // If user is searching then set the filter flag
-    func setFilterWith(status: Bool) {
-        isFilterApplied = status
-    }
-    
-}
-
-extension CountrySearchViewModel: DataStoreProtocol {
-    func sectionCount() -> Int {
-        return 1
-    }
-
-    func rowsCountIn(section: Int) -> Int {
-        var rowCount = 0
-
-        if isFilterApplied {
-            rowCount = filteredArray.count
-        } else {
-            rowCount = normalArray.count
-        }
-        return rowCount
-    }
-
-    func itemAt(row: Int) -> Country? {
-        if isFilterApplied {
-            return filteredArray[row]
-        } else {
-            return normalArray[row]
-        }
-    }
+        return filteredArray
+    }    
 }

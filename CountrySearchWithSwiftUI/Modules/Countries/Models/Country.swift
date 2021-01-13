@@ -6,8 +6,12 @@
 //
 
 import Foundation
-
-struct Country {
+// Simple model to display the list
+struct Country: Identifiable {
+    var id: String {
+        return countryCode
+    }
+    
     var countryName: String
     var countryCode: String
 }

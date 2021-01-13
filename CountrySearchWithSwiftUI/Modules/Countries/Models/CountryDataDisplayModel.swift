@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Customized model for presentation purpose
 struct CountryDataDisplayModel {
     var name: String!
     var nativeName: String!
