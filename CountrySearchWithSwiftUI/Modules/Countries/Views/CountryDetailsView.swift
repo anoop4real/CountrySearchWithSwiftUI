@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CountryDetailsView: View {
     
-    var selectedCountry: Country
+    private var selectedCountry: Country
     @ObservedObject var countryDetailsViewModel = CountryDetailsViewModel(with: NetworkDataManager())
     
     init(selectedCountry: Country) {
@@ -17,17 +17,28 @@ struct CountryDetailsView: View {
         countryDetailsViewModel.fetchDetailsOfCountryWith(code: self.selectedCountry.countryCode)
     }
     var body: some View {
-        VStack {
-            switch self.countryDetailsViewModel.countryDetailsResponse {
-            case .success(let countryData):
-                Text(countryData.name)
-            case .failure(let error):
-                Text("Error fetching data")
-            case .none:
-                Text("Error fetching data")
+        NavigationView {
+            VStack {
+                if self.countryDetailsViewModel.viewState == .busy {
+                    ProgressView()
+                } else {
+                    switch self.countryDetailsViewModel.countryDetailsResponse {
+                    case .success(let countryData):
+                        List {
+                            ForEach(countryData.listData.sorted(by: >), id: \.key) { key, value in
+                                CountryDetailsRow(key: key, value: value)
+                            }
+                        }
+                        .listStyle(PlainListStyle())
+                    case .failure(let error):
+                        Text("Error fetching data")
+                    case .none:
+                        Text("Error fetching data")
+                    }
+                }
             }
         }
-
+        .navigationTitle(selectedCountry.countryName)
     }
 }
 

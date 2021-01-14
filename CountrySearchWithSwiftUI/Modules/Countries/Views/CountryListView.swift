@@ -17,7 +17,7 @@ struct CountryListView: View {
             VStack {
                 SearchBar(searchText: $searchText)
                 List(countrySearchViewModel.filterBy(keyWord: searchText)) { country in
-                    NavigationLink(destination: CountryDetailsView(selectedCountry: country)) {
+                    NavigationLink(destination: LazyView(CountryDetailsView(selectedCountry: country))) {
                         CountryListRow(country: country)
                     }
                 }

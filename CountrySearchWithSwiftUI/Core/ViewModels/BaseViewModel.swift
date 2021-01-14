@@ -8,8 +8,9 @@
 import Foundation
 import Alamofire
 
-class BaseViewModel {
+class BaseViewModel: ObservableObject {
     
+    @Published var viewState: ViewState = .idle
     /// Generic function process the response
     func process< T: Codable>(response: Result<Data, Error>, type: T.Type) -> Result<T,ApplicationError.APIErrors> {
         
@@ -37,5 +38,9 @@ class BaseViewModel {
             return .unknown
         }
         return .unknown
+    }
+    
+    func updateState(state: ViewState)  {
+        self.viewState = state
     }
 }

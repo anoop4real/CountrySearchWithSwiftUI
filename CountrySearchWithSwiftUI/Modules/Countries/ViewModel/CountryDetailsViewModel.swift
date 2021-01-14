@@ -7,19 +7,21 @@
 
 import Foundation
 
-class CountryDetailsViewModel: BaseViewModel, ObservableObject {
+class CountryDetailsViewModel: BaseViewModel {
     private var networkManager: NetworkManagerProtocol!
 
-    @Published var countryDetailsResponse: Result<CountryDataDisplayModel, ApplicationError.APIErrors>!
+    var countryDetailsResponse: Result<CountryDataDisplayModel, ApplicationError.APIErrors>!
     init(with networkManager: NetworkManagerProtocol = NetworkDataManager()) {
         super.init()
         self.networkManager = networkManager
     }
 
     func fetchDetailsOfCountryWith(code: String) {
+        updateState(state: .busy)
         networkManager.executeWith(request: APIRouter.byCode(code)) { [weak self] result in
             guard let processedResult = self?.process(response: result, type: CountryData.self) else {
                 self?.countryDetailsResponse = .failure(ApplicationError.APIErrors.unknown)
+                self?.updateState(state: .idle)
                 return
             }
             switch processedResult {
@@ -33,6 +35,7 @@ class CountryDetailsViewModel: BaseViewModel, ObservableObject {
             case .failure(let error):
                 self?.countryDetailsResponse = .failure(error)
             }
+            self?.updateState(state: .idle)
         }
     }
 

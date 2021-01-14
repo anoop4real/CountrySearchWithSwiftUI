@@ -19,6 +19,7 @@ struct CountryDataDisplayModel {
     var imageURL: URL!
     var latitute: Double!
     var longitude: Double!
+    var listData = [String: String]()
 
     init? (with countryData: CountryData) {
         guard let name = countryData.name, let nativeName = countryData.nativeName, let region = countryData.region, let capital = countryData.capital, let area = countryData.area, let languages = countryData.languages, let germanTranslation = countryData.translations, let imageURL = countryData.flag, let latlong = countryData.latlng else {
@@ -35,5 +36,12 @@ struct CountryDataDisplayModel {
         self.imageURL = URL(string: imageURL)
         self.latitute = latlong[0]
         self.longitude = latlong[1]
+        
+        self.listData["Name"] = name
+        self.listData["Native Name"] = nativeName
+        self.listData["Region"] = region
+        self.listData["Capital"] = capital
+        self.listData["Area"] = String(area)
+        
     }
 }
