@@ -23,7 +23,16 @@ struct CountryDetailsView: View {
                 } else {
                     switch self.countryDetailsViewModel.countryDetailsResponse {
                     case .success(let countryData):
-                        MapView(coordinateRegion: countryData.getRegionCoordinate())
+                        ZStack (alignment: .topTrailing){
+                            MapView(coordinateRegion: countryData.getRegionCoordinate())
+                            SVGImageView(url: countryData.imageURL, size: CGSize(width: 50,height: 50))
+                                .frame(width: 50, height: 50, alignment: .center)
+                                .shadow(color: .white, radius: 2)
+                                .border(Color.white, width: 1)
+                                //.clipShape(Capsule())
+                                .offset(x: -5, y: 5)
+                        }
+                        
                         List {
                             ForEach(countryData.listData.sorted(by: >), id: \.key) { key, value in
                                 CountryDetailsRow(key: key, value: value)
