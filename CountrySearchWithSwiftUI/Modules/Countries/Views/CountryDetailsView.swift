@@ -17,13 +17,13 @@ struct CountryDetailsView: View {
         countryDetailsViewModel.fetchDetailsOfCountryWith(code: self.selectedCountry.countryCode)
     }
     var body: some View {
-        NavigationView {
             VStack {
                 if self.countryDetailsViewModel.viewState == .busy {
                     ProgressView()
                 } else {
                     switch self.countryDetailsViewModel.countryDetailsResponse {
                     case .success(let countryData):
+                        MapView(coordinateRegion: countryData.getRegionCoordinate())
                         List {
                             ForEach(countryData.listData.sorted(by: >), id: \.key) { key, value in
                                 CountryDetailsRow(key: key, value: value)
@@ -37,9 +37,8 @@ struct CountryDetailsView: View {
                     }
                 }
             }
-        }
-        .navigationTitle(selectedCountry.countryName)
-    }
+            .navigationTitle(selectedCountry.countryName)
+        }        
 }
 
 struct CountryDetailsView_Previews: PreviewProvider {

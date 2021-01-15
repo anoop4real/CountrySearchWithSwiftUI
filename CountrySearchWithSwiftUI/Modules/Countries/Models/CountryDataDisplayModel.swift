@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 // Customized model for presentation purpose
 struct CountryDataDisplayModel {
@@ -36,12 +37,16 @@ struct CountryDataDisplayModel {
         self.imageURL = URL(string: imageURL)
         self.latitute = latlong[0]
         self.longitude = latlong[1]
-        
+
+        // TO display the list
         self.listData["Name"] = name
         self.listData["Native Name"] = nativeName
         self.listData["Region"] = region
         self.listData["Capital"] = capital
         self.listData["Area"] = String(area)
-        
+    }
+
+    func getRegionCoordinate() -> MKCoordinateRegion {
+        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.latitute, longitude: self.longitude), span: MKCoordinateSpan(latitudeDelta: 20.0, longitudeDelta: 20.0))
     }
 }
