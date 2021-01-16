@@ -13,6 +13,7 @@
 		7647E9B925B05BA600469194 /* CountryDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647E9B825B05BA600469194 /* CountryDetailsRow.swift */; };
 		7647E9BE25B1871C00469194 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647E9BD25B1871C00469194 /* MapView.swift */; };
 		7647E9CC25B1E6AC00469194 /* SVGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647E9CB25B1E6AC00469194 /* SVGView.swift */; };
+		7647E9D225B2CA6B00469194 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647E9D125B2CA6B00469194 /* Constants.swift */; };
 		766D48EB25AF571B0090B4E9 /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766D48EA25AF571B0090B4E9 /* CountryDetailsView.swift */; };
 		76BD130625AEFB3D00446F0E /* MockResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD130525AEFB3D00446F0E /* MockResponses.swift */; };
 		76BD130F25AEFBDF00446F0E /* CountryDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BD130E25AEFBDF00446F0E /* CountryDetailsTests.swift */; };
@@ -76,6 +77,7 @@
 		7647E9B825B05BA600469194 /* CountryDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsRow.swift; sourceTree = "<group>"; };
 		7647E9BD25B1871C00469194 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		7647E9CB25B1E6AC00469194 /* SVGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGView.swift; sourceTree = "<group>"; };
+		7647E9D125B2CA6B00469194 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		766D48EA25AF571B0090B4E9 /* CountryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
 		76BD130525AEFB3D00446F0E /* MockResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponses.swift; sourceTree = "<group>"; };
 		76BD130E25AEFBDF00446F0E /* CountryDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsTests.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				76BD131C25AEFCA500446F0E /* Helpers.swift */,
 				7647E9AE25B050DD00469194 /* LazyView.swift */,
 				7647E9B325B0529100469194 /* ViewState.swift */,
+				7647E9D125B2CA6B00469194 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				76F4AFC625ACF9E5009C82B0 /* APIRouter.swift in Sources */,
 				76F4AFC725ACF9E5009C82B0 /* NetworkManagerProtocol.swift in Sources */,
 				76BD131D25AEFCA500446F0E /* Helpers.swift in Sources */,
+				7647E9D225B2CA6B00469194 /* Constants.swift in Sources */,
 				76F4AF9325ACF9C0009C82B0 /* Persistence.swift in Sources */,
 				76F4B02125ADB559009C82B0 /* CountrySearchViewModel.swift in Sources */,
 				76F4B01825ADB45E009C82B0 /* Languages.swift in Sources */,

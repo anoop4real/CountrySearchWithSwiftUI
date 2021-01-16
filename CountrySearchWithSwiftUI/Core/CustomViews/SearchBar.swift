@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct SearchBar: UIViewRepresentable {
-
     @Binding var searchText: String
     
     class Coordinator: NSObject, UISearchBarDelegate {
@@ -23,6 +22,7 @@ struct SearchBar: UIViewRepresentable {
             self.searchText = searchText
         }
     }
+
     func makeCoordinator() -> SearchBar.Coordinator {
         Coordinator(value: $searchText)
     }
