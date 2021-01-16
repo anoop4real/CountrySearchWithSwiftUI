@@ -1,5 +1,4 @@
 # CountrySearchWithSwiftUI
-# CountrySearchWithSwiftUI
 
 ![Country](https://user-images.githubusercontent.com/6782228/104825171-9976d400-5858-11eb-864d-7212df6dd3b0.gif)
 
@@ -16,7 +15,7 @@ A small app to search for details of a country using SwiftUI.
 
 ### Building
 
-Please do a pod update and Swift package. update after cloning so that libraries are properly updated
+Please do a pod install and Swift package update, after cloning so that libraries are properly updated
 
 ### SwiftUI Higlights
 1. Used SwiftUI for rendering the UI
