@@ -244,8 +244,8 @@
 		76F4AF8825ACF9BF009C82B0 /* CountrySearchWithSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				76F4AFCB25ACF9EF009C82B0 /* Modules */,
 				76F4AFBC25ACF9CE009C82B0 /* Core */,
+				76F4AFCB25ACF9EF009C82B0 /* Modules */,
 				76F4AF8925ACF9BF009C82B0 /* CountrySearchWithSwiftUIApp.swift */,
 				76F4AF8B25ACF9BF009C82B0 /* ContentView.swift */,
 				76F4AF8D25ACF9C0009C82B0 /* Assets.xcassets */,
