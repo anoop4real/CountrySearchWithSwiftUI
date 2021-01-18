@@ -24,7 +24,7 @@ struct CountryDetailsView: View {
                     switch self.countryDetailsViewModel.countryDetailsResponse {
                     case .success(let countryData):
                         ZStack (alignment: .topTrailing){
-                            MapView(coordinateRegion: countryData.getRegionCoordinate())
+                            MapView(coordinate: countryData.getRegionCoordinate())
                             SVGImageView(url: countryData.imageURL, size: Constants.flagSize)
                                 .frame(width: 50, height: 50, alignment: .center)
                                 .shadow(color: .white, radius: 2)

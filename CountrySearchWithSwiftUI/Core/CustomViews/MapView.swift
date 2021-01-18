@@ -13,17 +13,28 @@ struct AnnotationItem: Identifiable {
     let id = UUID()
 }
 struct MapView: View {
-    @State var coordinateRegion: MKCoordinateRegion
-    
+    var coordinate: CLLocationCoordinate2D
+    @State private var coordinateRegion = MKCoordinateRegion()
+
     var body: some View {
-        Map(coordinateRegion: $coordinateRegion, annotationItems: [AnnotationItem(coordinate: CLLocationCoordinate2D(latitude: self.coordinateRegion.center.latitude, longitude: self.coordinateRegion.center.longitude))]) {item in
+        Map(coordinateRegion: $coordinateRegion, annotationItems: [AnnotationItem(coordinate: CLLocationCoordinate2D(latitude: self.coordinateRegion.center.latitude, longitude: self.coordinateRegion.center.longitude))]) { (item) in
             MapPin(coordinate: item.coordinate)
         }
+        .onAppear {
+            setRegion(coordinate)
+        }
+    }
+
+    private func setRegion(_ coordinate: CLLocationCoordinate2D) {
+        coordinateRegion = MKCoordinateRegion(
+            center: coordinate,
+            span: MKCoordinateSpan(latitudeDelta: 20.0, longitudeDelta: 20.0)
+        )
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinateRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 10.0, longitude: 40.0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
+        MapView(coordinate: CLLocationCoordinate2D(latitude: 10.0, longitude: 40.0))
     }
 }

@@ -46,7 +46,11 @@ struct CountryDataDisplayModel {
         self.listData["Area"] = String(area)
     }
 
-    func getRegionCoordinate() -> MKCoordinateRegion {
-        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.latitute, longitude: self.longitude), span: MKCoordinateSpan(latitudeDelta: 20.0, longitudeDelta: 20.0))
+//    func getRegionCoordinate() -> MKCoordinateRegion {
+//        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.latitute, longitude: self.longitude), span: MKCoordinateSpan(latitudeDelta: 20.0, longitudeDelta: 20.0))
+//    }
+    
+    func getRegionCoordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: self.latitute, longitude: self.longitude)
     }
 }
