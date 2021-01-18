@@ -13,9 +13,8 @@ import SVGKit
 struct SVGImageView: UIViewRepresentable {
     var url:URL
     var size:CGSize
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        //uiView.image = SVGKImage(contentsOf: url)
     
+    func updateUIView(_ uiView: SVGKFastImageView, context: Context) {
         uiView.contentMode = .scaleAspectFit
         uiView.image.size = size
     }
