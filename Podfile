@@ -7,6 +7,8 @@ target 'CountrySearchWithSwiftUI' do
 
   # Pods for CountrySearchWithSwiftUI
   pod 'SVGKit'
+  pod 'SDWebImageSVGCoder'
+  pod 'SDWebImageSwiftUI'
 
   target 'CountrySearchWithSwiftUITests' do
     inherit! :search_paths

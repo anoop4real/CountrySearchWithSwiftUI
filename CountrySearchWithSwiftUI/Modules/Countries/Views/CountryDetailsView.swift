@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CountryDetailsView: View {
     
@@ -25,8 +26,10 @@ struct CountryDetailsView: View {
                     case .success(let countryData):
                         ZStack (alignment: .topTrailing){
                             MapView(coordinate: countryData.getRegionCoordinate())
-                            SVGImageView(url: countryData.imageURL, size: Constants.flagSize)
-                                .frame(width: 50, height: 50, alignment: .center)
+                            WebImage(url: countryData.imageURL,
+                                     context: [.imageThumbnailPixelSize : CGSize.zero])
+                                .resizable()
+                                .frame(width: 50, height: 50)
                                 .shadow(color: .white, radius: 2)
                                 .border(Color.white, width: 1)
                                 .offset(x: -5, y: 5)
