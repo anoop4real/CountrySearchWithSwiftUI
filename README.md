@@ -2,12 +2,16 @@
 
 ![Country](https://user-images.githubusercontent.com/6782228/104825171-9976d400-5858-11eb-864d-7212df6dd3b0.gif)
 
+### WatchOS
+
+![watch](https://user-images.githubusercontent.com/6782228/106595228-86038280-6553-11eb-9af6-12087d415eee.gif)
+
 
 ## Country Search
 
 A small app to search for details of a country using SwiftUI.
 
-* Supported IDE: `XCode 12, iOS 14 SDK`
+* Supported IDE: `XCode 12, iOS 14 SDK, watchOS 7`
 * API Used: `https://restcountries.eu/rest/v2/alpha/{code}`
 * `Codable` protocol for JSON to object.
 * `SVGKit` used for SVG rendering
