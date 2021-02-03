@@ -19,7 +19,7 @@ A small app to search for details of a country using SwiftUI.
 
 ### Building
 
-Please do a pod install and Swift package update, after cloning so that libraries are properly updated
+Please do a Swift package update, after cloning so that libraries are properly updated
 
 ### SwiftUI Higlights
 1. Used SwiftUI for rendering the UI
