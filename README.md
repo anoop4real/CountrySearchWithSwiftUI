@@ -43,7 +43,5 @@ Initially the idea was to do an online search while user types in each character
 Found that list of countries and their code can be obtained from NSLocale, and used that for initial list which turns out to be faster for filtering without any API call. Once user selects the country , API call is being made to retrieve the required info of a country.
 
 ### Known Issues and Debts
-
-Flags - Some flags have wrong colors not sure why, aspect ratio is not fully correct
 Maps - Some locations need more zooming in
 
