@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 public enum APIRouter: URLRequestConvertible {
-    static let baseURL = "https://restcountries.eu/rest/v2"
+    static let baseURL = "https://restcountries.com/v2"
     
     case byName(String)
     case byCode(String)
